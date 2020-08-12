@@ -37,3 +37,7 @@
 *.vcxproj.*
 
 .vs/
+Debug/
+Release/
+Testing/
+x64/
