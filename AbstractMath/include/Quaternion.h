@@ -31,7 +31,7 @@ namespace AbstractMath {
 
 		constexpr Quaternion(const Vector<T, 4>& other) : Vector<T, 4>()
 		{
-			copyFrom(other.data);
+			this->copyFrom(other.data);
 		}
 
 		constexpr Quaternion<T> conjugate() const

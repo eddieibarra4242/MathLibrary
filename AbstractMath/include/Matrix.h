@@ -32,6 +32,15 @@ namespace AbstractMath {
 			copyFrom(other.data);
 		}
 
+		template<typename Ty>
+		constexpr Matrix(const Matrix<Ty, Rows_C, Cols_C>& other)
+		{
+			for (size_t i = 0; i < Rows_C * Cols_C; i++)
+			{
+				this->data[i] = other.data[i];
+			}
+		}
+
 		constexpr void operator=(const Matrix<T, Rows_C, Cols_C>& other)
 		{
 			copyFrom(other.data);
@@ -82,8 +91,6 @@ namespace AbstractMath {
 			return result;
 		}
 
-
-		//;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;	REDO	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 		template<typename Ty>
 		constexpr Vector<decltype(T(1)* Ty(1)), Rows_C> operator*(const Vector<Ty, Cols_C>& other) const
 		{

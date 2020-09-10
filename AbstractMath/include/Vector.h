@@ -127,6 +127,18 @@ namespace AbstractMath {
 			return this->data[index];
 		}
 
+		constexpr Vector<T, C> operator-() const
+		{
+			Vector<T, C> result;
+
+			for (size_t i = 0; i < C; i++)
+			{
+				result[i] = -this->data[i];
+			}
+
+			return result;
+		}
+
 		template<typename Ty>
 		constexpr Vector<decltype(T(0) + Ty(0)), C> operator+(const Vector<Ty, C>& other) const
 		{
@@ -232,7 +244,7 @@ namespace AbstractMath {
 		}
 
 		template<typename Ty>
-		constexpr void operator+=(const Vector<Ty, C>& other) const
+		constexpr void operator+=(const Vector<Ty, C>& other)
 		{
 			for (size_t i = 0; i < C; i++)
 			{
@@ -241,7 +253,7 @@ namespace AbstractMath {
 		}
 
 		template<typename Ty>
-		constexpr void operator-=(const Vector<Ty, C>& other) const
+		constexpr void operator-=(const Vector<Ty, C>& other)
 		{
 			for (size_t i = 0; i < C; i++)
 			{
@@ -250,7 +262,7 @@ namespace AbstractMath {
 		}
 
 		template<typename Ty>
-		constexpr void operator*=(const Vector<Ty, C>& other) const
+		constexpr void operator*=(const Vector<Ty, C>& other)
 		{
 			for (size_t i = 0; i < C; i++)
 			{
@@ -259,47 +271,11 @@ namespace AbstractMath {
 		}
 
 		template<typename Ty>
-		constexpr void operator/=(const Vector<Ty, C>& other) const
+		constexpr void operator/=(const Vector<Ty, C>& other)
 		{
 			for (size_t i = 0; i < C; i++)
 			{
 				this->data[i] /= other.data[i];
-			}
-		}
-
-		template<typename Ty>
-		constexpr void operator+=(const Ty& other) const
-		{
-			for (size_t i = 0; i < C; i++)
-			{
-				this->data[i] += other;
-			}
-		}
-
-		template<typename Ty>
-		constexpr void operator-=(const Ty& other) const
-		{
-			for (size_t i = 0; i < C; i++)
-			{
-				this->data[i] -= other;
-			}
-		}
-
-		template<typename Ty>
-		constexpr void operator*=(const Ty& other) const
-		{
-			for (size_t i = 0; i < C; i++)
-			{
-				this->data[i] *= other;
-			}
-		}
-
-		template<typename Ty>
-		constexpr void operator/=(const Ty& other) const
-		{
-			for (size_t i = 0; i < C; i++)
-			{
-				this->data[i] /= other;
 			}
 		}
 
@@ -383,4 +359,10 @@ namespace AbstractMath {
 		}
 	};
 
+	//template<typename T, size_t C>
+	//constexpr Vector<T, C> i = { 1 };
+	//template<typename T, size_t C>
+	//constexpr Vector<T, C> j = { 0, 1 };
+	//template<typename T, size_t C>
+	//constexpr Vector<T, C> k = { 0, 0, 1 };
 }

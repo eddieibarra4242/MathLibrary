@@ -17,7 +17,7 @@ namespace AbstractMath {
 
 		constexpr Vector3(const Vector<T, 3>& other)
 		{
-			copyFrom(other.data);
+			this->copyFrom(other.data);
 		}
 
 		template<typename Ty>
